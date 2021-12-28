@@ -10,8 +10,17 @@ export default function Home(): JSX.Element {
           children="text"
         />
 
-        <Button appearance="primary">Primary</Button>
-        <Button appearance="ghost">Ghost</Button>
+        <Button 
+          onClick={ () => console.log("click") }
+          appearance="primary"
+          arrow="right"
+        >Primary</Button>
+        <Button 
+          appearance="ghost"
+          arrow="down"
+        >
+          Ghost
+        </Button>
     </div>
   );
 }

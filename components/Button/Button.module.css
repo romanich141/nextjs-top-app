@@ -2,7 +2,7 @@
 	display: inline-block;
 
 	box-sizing: border-box;
-	padding: 10px 30px;
+	padding: 10px 15px;
 
 	cursor: pointer;
 	transition: background-color 0.2s;
@@ -39,4 +39,21 @@
 .ghost:active {
 	color: var(--white);
 	background-color: var(--primary);
+}
+
+.arrow {
+	display: inline-block;
+
+	margin-left: 10px;
+}
+
+.arrow.down {
+	transform: rotate(90deg);
+	transition: rotate 0.2s;
+}
+
+.primary svg,
+.ghost:hover svg,
+.ghost:active svg {
+	fill: var(--white);
 }
