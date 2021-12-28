@@ -22,7 +22,7 @@ const Button = ({ appearance, children, arrow = "none", className, ...props }: B
                 </span>
             )}
         </button>
-    )
+    );
 };
 
 export default Button;
