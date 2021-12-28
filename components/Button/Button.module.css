@@ -48,8 +48,8 @@
 }
 
 .arrow.down {
-	transform: rotate(90deg);
 	transition: rotate 0.2s;
+	transform: rotate(90deg);
 }
 
 .primary svg,
