@@ -3,6 +3,7 @@ import Button from "../components/Button/Button";
 import Htag from "../components/Htag/Htag";
 import P from "../components/P/P";
 import Tag from "../components/Tag/Tag";
+import Rating from "../components/Rating/Rating";
 
 export default function Home(): JSX.Element {
   return (
@@ -30,6 +31,8 @@ export default function Home(): JSX.Element {
         <Tag color="grey">{"Grey"}</Tag>
         <Tag size="md" color="green">{"Green"}</Tag>
         <Tag size="md" color="primary">{"Primary"}</Tag>
+
+        <Rating rating={3} />
     </div>
   );
 }
