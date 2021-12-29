@@ -44,18 +44,22 @@ const Rating = ({
     const constructRating = (currentRating: number) => {
         const updatedArray = ratingArray.map((_, i: number) => {
             return (
-                <StarIcon 
+                <span 
+                    onMouseEnter={ () => changeDisplay(i + 1) }
+                    onMouseLeave={ () => changeDisplay(rating) }
+                    onClick={ () => handleOnClick(i + 1) }
                     className={ 
                         cn(styles.star, {
                             [styles.filled]: i < currentRating,
                             [styles.editable]: isEditable,
                         })
-                    }
-                    onMouseEnter={ () => changeDisplay(i + 1) }
-                    onClick={ () => handleOnClick(i + 1) }
-                    tabIndex={ isEditable ? 1 : -1 }
-                    onKeyDown={ (event: KeyboardEvent<SVGElement>) => isEditable && handleSpace(i + 1, event)}
-                />
+                    } 
+                >
+                    <StarIcon 
+                        tabIndex={ isEditable ? 0 : -1 }
+                        onKeyDown={ (event: KeyboardEvent<SVGElement>) => isEditable && handleSpace(i + 1, event)}
+                    />
+                </span>
             );
         });
 
@@ -63,10 +67,7 @@ const Rating = ({
     };
 
     return (
-        <div
-            onMouseLeave={ () => changeDisplay(rating) } 
-            { ...props }
-        >
+        <div { ...props }>
             { ratingArray.map((starIcon: JSX.Element, i: number) => (<Fragment key={ i }>{ starIcon }</Fragment>)) }
         </div>
     );
