@@ -1,11 +1,11 @@
-import React from "react";
+import React, { FunctionComponent } from "react";
 import { LayoutProps } from "./Layout.props";
 import { Header } from "./Header/Header";
 import { Footer } from "./Footer/Footer";
 import { Sidebar } from "./Sidebar/Sidebar";
 import styles from "./Layout.module.css";
 
-export const Layout = ({ children }: LayoutProps): JSX.Element => {
+const Layout = ({ children }: LayoutProps): JSX.Element => {
     return (
         <>
             <Header/>
@@ -16,4 +16,15 @@ export const Layout = ({ children }: LayoutProps): JSX.Element => {
             <Footer/>
         </>
     )
+};
+
+
+export const withLayout = <T extends Record<string, unknown>>(Component: FunctionComponent<T>) => {
+    return function withLayoutComponents (props: T): JSX.Element {
+        return (
+            <Layout>
+                <Component { ...props } />
+            </Layout>
+        );
+    };
 };
